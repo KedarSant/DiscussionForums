@@ -16,7 +16,8 @@ module.exports = {
     return str
   },
   stripTags: function (input) {
-    return input.replace(/<(?:.|\n)*?>/gm, '')
+    var html = input
+    return new Handlebars.SafeString(html)
   },
 
   editIcon: function (storyUser, loggedUser, storyId, floating = true) {
