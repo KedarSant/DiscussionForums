@@ -23,7 +23,7 @@ router.get('/add', ensureAuth, (req, res) => {
 // @route   POST /stories
 router.post('/', ensureAuth, async (req, res) => {
   req.body.user = req.user.id
-  let str = `${req.body.title} ${req.body.body}`
+  let str = `${req.body.title} ${req.body.body.replace(/<(.|\n)*?>/g, '')}`
   pd.intent(str, 'en')
     .then(async (response) => {
       let category = getPostCategory(response)
