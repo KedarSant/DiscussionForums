@@ -1,6 +1,7 @@
+
 <h6>Dashboard</h6>
 <h3>Welcome {{name}}</h3>
-<p>Here are your stories</p>
+<p>Here are your posts</p>
 {{#if stories}}
 <table class="striped">
     <thead>
@@ -14,7 +15,7 @@
     <tbody>
         {{#each stories}}
         <tr>
-            <td><a href="/stories/{{_id}}">{{title}}</a></td>
+            <td><a class="ml-5 waves-effect waves-light btn" href="/stories/{{_id}}">{{title}}</a></td>
             <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
             <td><span class="dash-status">{{status}}</span></td>
             <td>
@@ -34,5 +35,5 @@
     </tbody>
 </table>
 {{else}}
-<p>You have not created any stories</p>
+<p>You haven't posted anything. <a class="ml-5 waves-effect waves-light btn" href='/stories/add'>Start today!!!</a></p>
 {{/if}}

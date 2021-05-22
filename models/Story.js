@@ -10,6 +10,10 @@ const StorySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment',
+  }],
   status: {
     type: String,
     default: 'public',
@@ -23,6 +27,13 @@ const StorySchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  keywords: [{
+    type: String,
+  }],
+  category: {
+    type: String,
+    required: true
+  }
 })
 
 module.exports = mongoose.model('Story', StorySchema)

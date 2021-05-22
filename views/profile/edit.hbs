@@ -1,0 +1,47 @@
+
+<h3>Edit your profile</h3>
+<div class="row">
+    <form action="/user/edit/{{user._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="linkedinURL" name="linkedinURL" value="{{user.linkedinURL}}">
+                <label for="title">Linkedin URL</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="facebookURL" name="facebookURL" value="{{user.facebookURL}}">
+                <label for="title">Facebook URL</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="twitterURL" name="twitterURL" value="{{user.twitterURL}}">
+                <label for="title">Twitter URL</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="githubURL" name="githubURL" value="{{user.githubURL}}">
+                <label for="title">Github URL</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Bio (Keep it short and catchy)</h5>
+                <textarea id="body" name="bio">{{user.bio}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/profile" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
+

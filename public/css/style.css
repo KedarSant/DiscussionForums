@@ -20,3 +20,41 @@ p {
 .img-small {
   width: 180px;
 }
+
+body {
+  background-color: #333;
+  color: white;
+}
+
+.ml-5 {
+  margin-left: 5;
+}
+
+input {
+  color: white;
+}
+
+.card {
+  transition: 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
+}
+
+#body {
+  visibility: visible;
+  display: block;
+}
+
+.repo {
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}

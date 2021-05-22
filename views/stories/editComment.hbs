@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col s12 m8">
         <h3>{{story.title}}
@@ -6,18 +7,8 @@
         </h3>
         <div class="card blue-grey darken-1 story">
             <div class="card-content white-text">
-                <span class="card-title">{{formatDate story.createdAt 'MMMM Do YYYY, h:mm:ss a'}}</span>
+                <span class="card-title">{{formatDate date 'MMMM Do YYYY, h:mm:ss a'}}</span>
                 {{{story.body}}}
-                <br>
-                {{#if story.keywords}}
-                <div id="repos">
-                    {{#each story.keywords}}
-                    <a href="/stories/search/query?keyword={{this}}"class="repo">{{this}}</a>
-                    {{/each}}
-                </div>
-                {{/if}}
-                <br>
-                {{{reportButton story.user._id user story._id}}}
             </div>
         </div>
     </div>
@@ -37,13 +28,17 @@
 <h4>Comments</h4>
 <hr>
 <div class="row">
-    <form action="/stories/{{story._id}}/addComment" class="col s12" method="POST">
+    <form action="/stories/{{story._id}}/comment/{{comment._id}}" class="col s12" method="POST">    
+        <input type="hidden" name="_method" value="PUT">
         <p>Comment as {{name}}</p>
         <div class="input-field col s6">
-            <textarea id="body" name="body"></textarea>
+            <textarea id="body" name="body">{{comment.body}}</textarea>
         </div>
         <div class="input-field col s6">
             <input class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action">
+        </div>
+        <div class="input-field col s6">
+            <a href="/stories/{{story._id}}" class="btn btn-large orange waves-effect waves-light">Cancel</a>
         </div>
     </form>
 </div>
@@ -60,8 +55,8 @@
             </div>
             {{{deleteComment user ../user ../story._id _id}}}
             <div class="card-content white-text">
-                <span class="card-title"><a class='white-text' href="/profile/{{user._id}}">{{user.displayName}}</a></span>
-                <p>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</p>
+                <span class="card-title"><a class='white1' href="/profile/{{user._id}}">{{user.displayName}}</a></span>
+                <p>{{formatDate date 'MMMM Do YYYY, h:mm:ss a'}}</p>
                 <div class="card-action"></div>
                 <p>{{StripScripts body}}</p>
             </div>
@@ -74,12 +69,3 @@
 <p>No comments. Comment now and contribute to the conversation!</p>
 <br><br><br>
 {{/if}}
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('select');
-        var options = []
-        var instances = M.FormSelect.init(elems, options);
-    });
-
-</script>
