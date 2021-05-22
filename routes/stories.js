@@ -7,8 +7,6 @@ const Comment = require('../models/Comment')
 const pd = require('paralleldots')
 const sendMail = require("../utils/mail")
 const { getPostCategory,getSpamMessage } = require('./../utils/spamIdentification')
-const { keywords } = require('paralleldots')
-
 
 // Set paralleldots API key
 pd.apiKey = process.env.PD_APIKEY
