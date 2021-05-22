@@ -11,7 +11,7 @@ const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db')
 const http = require('http')
 const formatMessage = require('./utils/messages');
-const createSpamIdentificationBot = require('./utils/spamIdentification')
+const { createSpamIdentificationBot } = require('./utils/spamIdentification')
 const fs = require('fs')
 
 const {
